@@ -1,14 +1,14 @@
 {%- if cookiecutter.use_nvidia_docker == 'yes' -%}
-FROM nvidia/cuda:10.1-cudnn7-devel-ubuntu18.04
+FROM nvidia/cuda:12.1.0-cudnn8-devel-ubuntu22.04
 {%- else -%}
-FROM ubuntu:18.04
+FROM ubuntu:22.04
 {%- endif %}
 
 RUN apt-get update && apt-get install -y \
   git \
-  python3.8 \
+  python3.10 \
   python3-pip \
-  python3.8-dev
+  python3.10-dev
 
 RUN pip3 install --upgrade pip
 
